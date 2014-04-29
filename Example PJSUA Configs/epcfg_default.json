@@ -1,0 +1,48 @@
+{ 
+   "EpConfig":             { 
+      "UaConfig":             { 
+         "maxCalls":             4,
+         "threadCnt":            1,
+         "mainThreadOnly":       true,
+         "nameserver":           [ ],
+         "userAgent":            "",
+         "stunServer":           [ ],
+         "stunIgnoreFailure":    true,
+         "natTypeInSdp":         1,
+         "mwiUnsolicitedEnabled": false
+      },
+      "LogConfig":            { 
+         "msgLogging":           1,
+         "level":                5,
+         "consoleLevel":         4,
+         "decor":                25328,
+         "filename":             "",
+         "fileFlags":            0
+      },
+      "MediaConfig":          { 
+         "clockRate":            16000,
+         "sndClockRate":         0,
+         "channelCount":         1,
+         "audioFramePtime":      20,
+         "maxMediaPorts":        12,
+         "hasIoqueue":           true,
+         "threadCnt":            1,
+         "quality":              4,
+         "ptime":                0,
+         "noVad":                false,
+         "ilbcMode":             30,
+         "txDropPct":            0,
+         "rxDropPct":            0,
+         "ecOptions":            0,
+         "ecTailLen":            200,
+         "sndRecLatency":        100,
+         "sndPlayLatency":       140,
+         "jbInit":               -1,
+         "jbMinPre":             -1,
+         "jbMaxPre":             -1,
+         "jbMax":                -1,
+         "sndAutoCloseTime":     1,
+         "vidPreviewEnableNative": true
+      }
+   }
+}

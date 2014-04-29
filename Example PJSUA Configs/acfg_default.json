@@ -1,0 +1,132 @@
+{ 
+   "AccountConfig":        { 
+      "priority":             0,
+      "idUri":                "",
+      "AccountRegConfig":     { 
+         "registrarUri":         "",
+         "registerOnAdd":        true,
+         "timeoutSec":           300,
+         "retryIntervalSec":     300,
+         "firstRetryIntervalSec": 0,
+         "delayBeforeRefreshSec": 5,
+         "dropCallsOnFail":      false,
+         "unregWaitSec":         4000,
+         "proxyUse":             3,
+         "headers":              [ ]
+      },
+      "AccountSipConfig":     { 
+         "proxies":              [ ],
+         "contactForced":        "",
+         "contactParams":        "",
+         "contactUriParams":     "",
+         "authInitialEmpty":     false,
+         "authInitialAlgorithm": "",
+         "transportId":          -1,
+         "authCreds":            [ 
+            { 
+               "scheme":               "digest",
+               "realm":                "*",
+               "username":             "",
+               "dataType":             0,
+               "data":                 "",
+               "akaK":                 "",
+               "akaOp":                "",
+               "akaAmf":               ""
+            }
+         ]
+      },
+      "AccountCallConfig":    { 
+         "holdType":             0,
+         "prackUse":             0,
+         "timerUse":             1,
+         "timerMinSESec":        90,
+         "timerSessExpiresSec":  1800
+      },
+      "AccountPresConfig":    { 
+         "publishEnabled":       false,
+         "publishQueue":         true,
+         "publishShutdownWaitMsec": 2000,
+         "pidfTupleId":          "",
+         "headers":              [ ]
+      },
+      "AccountMwiConfig":     { 
+         "enabled":              false,
+         "expirationSec":        3600
+      },
+      "AccountNatConfig":     { 
+         "sipStunUse":           0,
+         "mediaStunUse":         0,
+         "iceEnabled":           false,
+         "iceMaxHostCands":      -1,
+         "iceAggressiveNomination": true,
+         "iceNominatedCheckDelayMsec": 400,
+         "iceWaitNominationTimeoutMsec": 10000,
+         "iceNoRtcp":            false,
+         "iceAlwaysUpdate":      true,
+         "turnEnabled":          false,
+         "turnServer":           "",
+         "turnConnType":         17,
+         "turnUserName":         "",
+         "turnPasswordType":     0,
+         "turnPassword":         "",
+         "contactRewriteUse":    1,
+         "contactRewriteMethod": 6,
+         "viaRewriteUse":        1,
+         "sdpNatRewriteUse":     0,
+         "sipOutboundUse":       1,
+         "sipOutboundInstanceId": "",
+         "sipOutboundRegId":     "",
+         "udpKaIntervalSec":     15,
+         "udpKaData":            "\r\n"
+      },
+      "AccountMediaConfig":   { 
+         "lockCodecEnabled":     true,
+         "streamKaEnabled":      false,
+         "srtpUse":              0,
+         "srtpSecureSignaling":  1,
+         "ipv6Use":              0,
+         "TransportConfig":      { 
+            "port":                 0,
+            "portRange":            0,
+            "publicAddress":        "",
+            "boundAddress":         "",
+            "qosType":              0,
+            "qosParams":            { 
+               "qos.flags":            0,
+               "qos.dscp_val":         0,
+               "qos.so_prio":          0,
+               "qos.wmm_prio":         0
+            },
+            "TlsConfig":            { 
+               "CaListFile":           "",
+               "certFile":             "",
+               "privKeyFile":          "",
+               "password":             "",
+               "method":               0,
+               "ciphers":              [ ],
+               "verifyServer":         false,
+               "verifyClient":         false,
+               "requireClientCert":    false,
+               "msecTimeout":          0,
+               "qosType":              0,
+               "qosParams":            { 
+                  "qos.flags":            0,
+                  "qos.dscp_val":         0,
+                  "qos.so_prio":          0,
+                  "qos.wmm_prio":         0
+               },
+               "qosIgnoreError":       true
+            }
+         }
+      },
+      "AccountVideoConfig":   { 
+         "autoShowIncoming":     false,
+         "autoTransmitOutgoing": false,
+         "windowFlags":          0,
+         "defaultCaptureDevice": -1,
+         "defaultRenderDevice":  -2,
+         "rateControlMethod":    0,
+         "rateControlBandwidth": 0
+      }
+   }
+}
