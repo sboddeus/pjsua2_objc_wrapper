@@ -39,6 +39,12 @@ public:
             if (prm.e.body.tsxState.tsx.method == "BYE") {
                 [mAgent pjsuaCallEnded];
             }
+            else {
+                std::cout << "TSX MESSAGE: " << prm.e.body.tsxState.tsx.method << std::endl;
+            }
+        }
+        else {
+            std::cout << prm.e.type << " MEDIA TYPE RECIEVED" << std::endl;
         }
     }
     

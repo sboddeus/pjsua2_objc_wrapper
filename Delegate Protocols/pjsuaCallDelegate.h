@@ -15,4 +15,7 @@
 @optional
 - (void)pjsuaCallBegan;
 
+@optional
+- (void)pjsuaCallFailed;
+
 @end

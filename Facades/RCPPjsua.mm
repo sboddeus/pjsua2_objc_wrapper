@@ -124,6 +124,20 @@ static std::shared_ptr<Endpoint> mEndPoint;
     }
 }
 
+- (void)pjsuaCallFailed
+{
+    if (self.delegate) {
+        [self.delegate callFailed];
+    }
+}
+
+- (void)pjsuaCallBegan
+{
+    if (self.delegate) {
+        [self.delegate callBegan];
+    }
+}
+
 #pragma mark - pjsuaAccountDelegate Methods
 
 - (void)accountUnRegistered
