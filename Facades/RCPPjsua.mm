@@ -50,7 +50,6 @@ static std::shared_ptr<Endpoint> mEndPoint;
     jDocEP.readObject(ep_cfg);
     
     mEndPoint->libInit(ep_cfg);
-    mEndPoint->libStart();
     
     // Create SIP transport. With error handling
     TransportConfig tcfg;
@@ -61,6 +60,7 @@ static std::shared_ptr<Endpoint> mEndPoint;
         NSLog(@"%s", err.info().c_str());
         return;
     }
+    mEndPoint->libStart();
     
     // Now create account
     AccountConfig a_cfg;
@@ -110,48 +110,42 @@ static std::shared_ptr<Endpoint> mEndPoint;
         mEndPoint->hangupAllCalls();
     }
     
-    if (self.delegate) {
-        [self.delegate callEnded];
-    }
+    [self.delegate callEnded];
+
 }
 
 #pragma mark - pjsuaCallDelegate Methods
 
 - (void)pjsuaCallEnded
 {
-    if (self.delegate) {
-        [self.delegate callEnded];
-    }
+    [self.delegate callEnded];
 }
 
 - (void)pjsuaCallFailed
 {
-    if (self.delegate) {
-        [self.delegate callFailed];
-    }
+    [self.delegate callFailed];
 }
 
 - (void)pjsuaCallBegan
 {
-    if (self.delegate) {
-        [self.delegate callBegan];
-    }
+    [self.delegate callBegan];
+}
+
+- (void)pjsuaCallRejected
+{
+    [self.delegate callRejected];
 }
 
 #pragma mark - pjsuaAccountDelegate Methods
 
 - (void)accountUnRegistered
 {
-    if (self.delegate) {
-        [self.delegate accountUnRegistered];
-    }
+    [self.delegate accountUnRegistered];
 }
 
 - (void)accountRegistered
 {
-    if (self.delegate) {
-        [self.delegate accountRegistered];
-    }
+    [self.delegate accountRegistered];
 }
 
 @end

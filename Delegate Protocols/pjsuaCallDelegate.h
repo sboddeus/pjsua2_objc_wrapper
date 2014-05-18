@@ -12,10 +12,8 @@
 
 - (void)pjsuaCallEnded;
 
-@optional
 - (void)pjsuaCallBegan;
-
-@optional
 - (void)pjsuaCallFailed;
+- (void)pjsuaCallRejected;
 
 @end

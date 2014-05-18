@@ -11,7 +11,6 @@
 @protocol pjsuaAccountDelegate <NSObject>
 
 - (void)accountRegistered;
-
 - (void)accountUnRegistered;
 
 @end

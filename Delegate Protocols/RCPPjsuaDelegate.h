@@ -13,6 +13,8 @@
 - (void)callEnded;
 - (void)callBegan;
 - (void)callFailed;
+- (void)callRejected;
+
 - (void)accountRegistered;
 - (void)accountUnRegistered;
 

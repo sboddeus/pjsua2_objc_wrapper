@@ -39,9 +39,16 @@ public:
             if (prm.e.body.tsxState.tsx.method == "BYE") {
                 [mAgent pjsuaCallEnded];
             }
+            else if (prm.e.body.tsxState.tsx.statusText == "Busy Here") {
+                [mAgent pjsuaCallRejected];
+            }
             else {
                 std::cout << "TSX MESSAGE: " << prm.e.body.tsxState.tsx.method << std::endl;
+                std::cout << "TSX MESSAGE EXTENDED: " << prm.e.body.tsxState.tsx.statusText << std::endl;
             }
+        }
+        else if (prm.e.type == PJSIP_EVENT_TRANSPORT_ERROR) {
+            [mAgent pjsuaCallFailed];
         }
         else {
             std::cout << prm.e.type << " MEDIA TYPE RECIEVED" << std::endl;
