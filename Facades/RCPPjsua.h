@@ -23,4 +23,6 @@
 - (void)makeCallTo:(NSString*)number;
 - (void)endCall;
 
+- (void)answerIncomingCall;
+
 @end

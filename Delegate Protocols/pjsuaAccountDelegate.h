@@ -13,4 +13,6 @@
 - (void)accountRegistered;
 - (void)accountUnRegistered;
 
+- (void)incomingCallWithID: (int)callID;
+
 @end

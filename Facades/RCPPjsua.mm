@@ -15,6 +15,8 @@
     std::shared_ptr<RCPCall> mCallAgent;
 }
 
+@property (assign) int incomingCallID;
+
 @end
 
 @implementation RCPPjsua
@@ -83,6 +85,16 @@ static std::shared_ptr<Endpoint> mEndPoint;
     return NO;
 }
 
+#pragma mark - Instance Initialisation
+- (id)init
+{
+    if (self = [super init]) {
+        self.incomingCallID = PJSUA_INVALID_ID;
+    }
+    
+    return self;
+}
+
 #pragma mark - Method Implementations
 
 - (void)makeCallTo:(NSString *)number
@@ -111,7 +123,31 @@ static std::shared_ptr<Endpoint> mEndPoint;
     }
     
     [self.delegate callEnded];
+}
 
+- (void)answerIncomingCall
+{
+    if (self.incomingCallID == PJSUA_INVALID_ID) {
+        return;
+    }
+    
+    // else make call
+    mCallAgent = std::make_shared<RCPCall>(*(mAccountAgent.get()), self.incomingCallID);
+    mCallAgent->setCallBackAgent(self);
+    
+    CallOpParam prm(true);
+    prm.opt.audioCount = 1;
+    prm.opt.videoCount = 0;
+    prm.statusCode = PJSIP_SC_OK;
+
+    try {
+        mCallAgent->answer(prm);
+    } catch (std::exception & exc) {
+        NSLog(@"Could not handle call %s", exc.what());
+    }
+    
+    // clean up
+    self.incomingCallID = PJSUA_INVALID_ID;
 }
 
 #pragma mark - pjsuaCallDelegate Methods
@@ -137,6 +173,12 @@ static std::shared_ptr<Endpoint> mEndPoint;
 }
 
 #pragma mark - pjsuaAccountDelegate Methods
+
+- (void)incomingCallWithID: (int)callID
+{
+    self.incomingCallID = callID;
+    [self.delegate incomingCall];
+}
 
 - (void)accountUnRegistered
 {

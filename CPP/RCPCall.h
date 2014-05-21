@@ -26,7 +26,7 @@ private:
     callDelegate mAgent;
     
 public:
-    RCPCall(Account &acc) : Call(acc)
+    RCPCall(Account &acc, int callID = PJSUA_INVALID_ID) : Call(acc, callID)
     {};
     
     void setCallBackAgent(callDelegate agent) {

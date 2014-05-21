@@ -27,7 +27,7 @@ class RCPAccount : public Account {
 private:
     accountDelegate mAgent;
 
-public:
+public:    
     void setCallBackAgent(accountDelegate agent) {
         mAgent = agent;
     }
@@ -47,6 +47,10 @@ public:
                 [mAgent accountUnRegistered];
             }
         }
+    }
+    
+    virtual void onIncomingCall(OnIncomingCallParam &prm) {
+        [mAgent incomingCallWithID: prm.callId];
     }
 };
 

@@ -15,6 +15,8 @@
 - (void)callFailed;
 - (void)callRejected;
 
+- (void)incomingCall;
+
 - (void)accountRegistered;
 - (void)accountUnRegistered;
 
