@@ -38,7 +38,7 @@ static std::shared_ptr<Endpoint> mEndPoint;
     return _sharedInstance;
 }
 
-+ (void)configureSharedInstanceWithEndPointConfig:(NSString*)epcfg accountConfig:(NSString*)acfg;
++ (void)configureSharedInstanceWithEndPointConfig:(NSString*)epcfg accountConfig:(NSString*)acfg
 {
     RCPPjsua* sharedInstance = [self sharedInstance];
     
